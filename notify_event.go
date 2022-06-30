@@ -41,6 +41,7 @@ type FileFtp struct {
 // Event 事件
 type Event struct {
 	Tag      string      `json:"-"`
+	DeviceID uint        `json:"deviceId"`
 	DeviceNo string      `json:"deviceNo"`
 	Session  string      `json:"session"`
 	DTU      string      `json:"dtu"`

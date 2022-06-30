@@ -70,6 +70,7 @@ type Speed struct {
 // Alarm 报警
 type Alarm struct {
 	Tag       string      `json:"-"`
+	DeviceID  uint        `json:"deviceId"`
 	DeviceNo  string      `json:"deviceNo"`
 	DTU       string      `json:"dtu"`
 	UUID      string      `json:"uuid"`

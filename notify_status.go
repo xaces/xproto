@@ -83,6 +83,7 @@ type People struct {
 
 // Status 状态数据
 type Status struct {
+	DeviceID  uint      `json:"deviceId"`
 	DeviceNo  string    `json:"deviceNo"`
 	DTU       string    `json:"dtu"`    // DTU
 	Flag      uint8     `json:"flag"`   // 0-实时 1-补传 2-报警开始Gps 3-报警结束Gps

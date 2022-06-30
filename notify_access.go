@@ -30,6 +30,7 @@ const (
 
 // Access 链路注册
 type Access struct {
+	DeviceID      uint     `json:"deviceId"`
 	DeviceNo      string   `json:"deviceNo"`   // 设备号
 	DeviceTime    string   `json:"deviceTime"` // 设备时间
 	Online        bool     `json:"online"`
