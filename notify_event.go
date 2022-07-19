@@ -1,10 +1,10 @@
 package xproto
 
-// EventType 事件类型
-type EventType = int
+// EventCode 事件类型
+type EventCode = int
 
 const (
-	Event_File             EventType = iota + 0x500 //  未知
+	Event_File             EventCode = iota + 0x500 //  未知
 	Event_FileTimedCapture                          //  文件
 	Event_FileLittle                                //  ftp文件传输
 	Event_FileTransfer
@@ -15,7 +15,7 @@ const (
 // EventFile
 type EventFile struct {
 	FileName string   `josn:"fileName"`
-	FileType FileType `json:"fileType"`
+	FileType FileCode `json:"fileType"`
 }
 
 type FileCapture struct {
@@ -45,7 +45,7 @@ type Event struct {
 	DeviceNo string      `json:"deviceNo"`
 	Session  string      `json:"session"`
 	DTU      string      `json:"dtu"`
-	Type     EventType   `json:"type"`
+	Type     EventCode   `json:"type"`
 	Data     interface{} `json:"data"` // 负载数据
 	Status   *Status     `json:"status"`
 }

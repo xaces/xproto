@@ -45,5 +45,5 @@ type IClient interface {
 	// callback handle; if return error not nil, will close connection
 	OnHandle() error
 	// Request 发送指令
-	Request(ReqType, interface{}, interface{}) error
+	Request(ReqCode, interface{}, interface{}) error
 }

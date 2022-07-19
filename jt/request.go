@@ -316,9 +316,9 @@ func (p *Client) doControl(s interface{}) (uint16, error) {
 		return p.sequence, p.writeMessage(0x8300, res.Bytes)
 	case xproto.Ctrl_Vehi:
 		code := xproto.VehiCode(j.Get("code").ToInt())
-		if code == xproto.Ctrl_VehiOpenDoor {
+		if code == xproto.Vehi_OpenDoor {
 			res.addByte(0x00)
-		} else if code == xproto.Ctrl_VehiCloseDoor {
+		} else if code == xproto.Vehi_CloseDoor {
 			res.addByte(0x01)
 		} else {
 			return 0, xproto.ErrParam
@@ -327,9 +327,9 @@ func (p *Client) doControl(s interface{}) (uint16, error) {
 	case xproto.Ctrl_Reset:
 		res.addByte(4)
 		return 0, p.writeMessage(0x8105, res.Bytes)
-	case xproto.Ctrl_Capture:
+	case xproto.Ctrl_Snapshot:
 	case xproto.Ctrl_Live:
-		var param xproto.LiveControl
+		var param xproto.CtrlLive
 		j.ToVal(param)
 		res.addByte(param.Channel)
 		res.addByte(param.Type)

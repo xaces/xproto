@@ -148,7 +148,7 @@ func (p *Client) OnHandle() error {
 }
 
 // Request 发送请求
-func (p *Client) Request(cmd xproto.ReqType, s interface{}, r interface{}) error {
+func (p *Client) Request(cmd xproto.ReqCode, s interface{}, r interface{}) error {
 	var (
 		key uint16 = 0
 		err error  = nil

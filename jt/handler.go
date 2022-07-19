@@ -45,6 +45,7 @@ func (p *Client) onRevRegister() (err error) {
 	} else {
 		res.addByte(1)
 	}
+	p.LinkType = xproto.Link_Unknow
 	p.writeMessage(0x8100, res.Bytes)
 	return
 }

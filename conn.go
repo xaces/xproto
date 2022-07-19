@@ -69,27 +69,24 @@ func (c *Conn) NotifyDropped(err error) {
 }
 
 // alarm callback
-func (c *Conn) NotifyStatus(tag string, v *Status) {
+func (c *Conn) NotifyStatus(tag string, s *Status) {
 	if c.notify.Status != nil {
-		v.DeviceID = c.DeviceID
-		c.notify.Status(tag, c.usrArg, v)
+		c.notify.Status(tag, c.usrArg, s)
 	}
 }
 
 // alarm callback
-func (c *Conn) NotifyAlarm(b []byte, v *Alarm) {
+func (c *Conn) NotifyAlarm(b []byte, a *Alarm) {
 	if c.notify.Alarm != nil {
-		v.DeviceID = c.DeviceID
-		alarmUUID(v)
-		c.notify.Alarm(b, c.usrArg, v)
+		alarmUUID(a)
+		c.notify.Alarm(b, c.usrArg, a)
 	}
 }
 
 // event callback
-func (c *Conn) NotifyEvent(b []byte, v *Event) {
+func (c *Conn) NotifyEvent(b []byte, e *Event) {
 	if c.notify.Event != nil {
-		v.DeviceID = c.DeviceID
-		c.notify.Event(b, c.usrArg, v)
+		c.notify.Event(b, c.usrArg, e)
 	}
 }
 

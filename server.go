@@ -51,7 +51,7 @@ func NewServer(opts *Options, adapters ...AdapterHandler) (*Server, error) {
 	if err := s.isVaildOptions(); err != nil {
 		return s, err
 	}
-	tcpAddr, _ := net.ResolveTCPAddr("tcp4", fmt.Sprintf(":%d", s.Port)) //获取一个tcpAddr
+	tcpAddr, _ := net.ResolveTCPAddr("tcp4", fmt.Sprintf(":%d", opts.Port)) //获取一个tcpAddr
 	listener, err := net.ListenTCP("tcp", tcpAddr)
 	if err != nil {
 		return s, err

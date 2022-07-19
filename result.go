@@ -69,10 +69,8 @@ func (o *Result) WaitVal(k string, v interface{}) error {
 	}
 	o.Vals.Store(k, r)
 	defer o.Vals.Delete(k)
-	ticker := time.NewTicker(time.Second * o.reqTimeout)
-	defer ticker.Stop()
 	select {
-	case <-ticker.C:
+	case <-time.After(time.Second * o.reqTimeout):
 		return ErrTimeout
 	case <-r.Done:
 		return r.Error

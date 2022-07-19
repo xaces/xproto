@@ -48,7 +48,7 @@ func SyncStop(args ...string) {
 }
 
 // SyncSend 发送信息到设备
-func SyncSend(cmd ReqType, s interface{}, r interface{}, args ...string) error {
+func SyncSend(cmd ReqCode, s interface{}, r interface{}, args ...string) error {
 	if ctx := SyncGet(args...); ctx != nil {
 		return ctx.Request(cmd, s, r)
 	}

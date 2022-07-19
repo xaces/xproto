@@ -1,7 +1,6 @@
 package xproto
 
 import (
-	"log"
 	"testing"
 	"time"
 )
@@ -31,7 +30,7 @@ func (p *Client) OnHandle() error {
 }
 
 // Request 发送指令
-func (p *Client) Request(cmd ReqType, s interface{}, r interface{}) error {
+func (p *Client) Request(cmd ReqCode, s interface{}, r interface{}) error {
 	return nil
 }
 
@@ -40,7 +39,7 @@ func TestServer(t *testing.T) {
 		return &Client{}
 	})
 	if err != nil {
-		log.Fatalln(err)
+		return
 	}
 	defer s.Release()
 	s.Handler.Status = LogStatus
